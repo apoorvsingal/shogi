@@ -7,7 +7,7 @@ class Index extends React.Component {
 	constructor(props:object){
 		super(props)
 	}
-	render(): [JSX, JSX]{
+	render(): any{
 		return [
 			<Head>
 				<title>HaHaHa</title>
@@ -32,29 +32,29 @@ class Index extends React.Component {
 	}
 	sketch(context:any){
 		const
-			lengthOfAGenericBoard = 3366,
-			widthOfAGenericBoard = 3333
-
+			lengthOfAGenericBoard:number = 3366,
+			widthOfAGenericBoard:number = 3333
+/*
 		const 
-			lengthOfASquareInAGenericBoard = 36,
-			widthOfASquareInAGenericBoard = 33
-
+			lengthOfASquareInAGenericBoard:number = 36,
+			widthOfASquareInAGenericBoard:number= 33
+*/
 		const
-			widthOfCanvas = 95/100*Math.min(window.innerHeight, window.innerWidth),
-			lengthOfCanvas = widthOfCanvas*lengthOfAGenericBoard/widthOfAGenericBoard,
-			widthOfOneSquare = widthOfCanvas*(widthOfASquareInAGenericBoard/widthOfAGenericBoard),
-			lengthOfOneSquare = widthOfCanvas*(lengthOfASquareInAGenericBoard/lengthOfAGenericBoard)
+			widthOfCanvas:number = 95/100*Math.min(window.innerHeight, window.innerWidth),
+			lengthOfCanvas:number = widthOfCanvas*lengthOfAGenericBoard/widthOfAGenericBoard,
+			widthOfOneSquare:number = widthOfCanvas/9,
+			lengthOfOneSquare:number = lengthOfCanvas/9
 
 		context.setup = () => {
 
-			context.createCanvas(lengthOfCanvas, widthOfCanvas).parent('game')
+			context.createCanvas(widthOfCanvas, lengthOfCanvas).parent('game')
 			context.background(context.color(202, 164, 114))
 
 			context.stroke('black')
 			context.strokeWeight(widthOfCanvas/500)
 
-			for(let i = 0, j = 0; i <= widthOfCanvas+widthOfOneSquare && j <= lengthOfCanvas+lengthOfOneSquare; i+= widthOfOneSquare, j+= lengthOfOneSquare){
-				context.line(i, 0, i, widthOfCanvas) //vertical line
+			for(let i = 0, j = 0; i <= widthOfCanvas+widthOfOneSquare && i <= lengthOfCanvas+lengthOfOneSquare; i+= widthOfOneSquare, j+= lengthOfOneSquare){
+				context.line(i, 0, i, lengthOfCanvas) //vertical line
 				context.line(0, j, widthOfCanvas, j) //horizontal line
 			}
 		}

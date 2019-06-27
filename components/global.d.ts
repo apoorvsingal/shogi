@@ -1,5 +1,7 @@
 declare module 'react'
 
-declare interface JSX {
-	[name:string]: any
+declare namespace JSX {
+	interface IntrinsicElements {
+		[name:string]: any
+	}
 }

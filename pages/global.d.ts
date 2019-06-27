@@ -1,8 +1,8 @@
 declare module 'next/head'
 declare module 'react'
 
-declare interface JSX {
-	IntrinsicElements: {
+declare namespace JSX {
+	interface IntrinsicElements {
 		[name:string]: any
 	}
 }
